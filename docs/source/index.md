@@ -1,4 +1,4 @@
 verilog study documentation
 ========================
 
-[verilog_manual](/9cc.c)
+[verilog_manual](/verilog_manual/verilog_manual.md)
