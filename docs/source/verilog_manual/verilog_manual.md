@@ -70,3 +70,6 @@ Verilogの`.inA`表記はnamed port connectionと呼ばれる構文で, `.inA(in
 #(HALF_CYCLE);
 clk = 1'b0;
 ```
+`$display`はシミュレーション中にメッセージを表示するためのシステムタスクです. `$finish`はシミュレーションを終了するためのシステムタスクです.  
+`repeat(10) @(posedge clk);`について  
+`repeat(10)`は繰り返し制御文で, 続くステートメントを10回繰り返します. `@(posedge clk)`はイベント制御文で, `clk`の立ち上がりエッジ(0から1への変化)を待ちます.
