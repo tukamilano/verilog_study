@@ -4,13 +4,13 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-project = 'c_compiler study note'
+project = 'verilog study note'
 copyright = '2025, Kei Tsukamoto'
 author = 'Kei Tsukamoto'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-html_baseurl = 'https://tukamilano.github.io/c_compiler/'
+html_baseurl = 'https://tukamilano.github.io/verilog_study/'
 
 # 拡張機能リストを一箇所にまとめる
 extensions = [

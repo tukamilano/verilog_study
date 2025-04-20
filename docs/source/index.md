@@ -1,3 +1,3 @@
-c_compiler documentation
+verilog study documentation
 ========================
 
