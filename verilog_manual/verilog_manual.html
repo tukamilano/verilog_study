@@ -1,0 +1,175 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>verilog_manual &mdash; verilog study note  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+    <link rel="canonical" href="https://tukamilano.github.io/verilog_study/verilog_manual/verilog_manual.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            verilog study note
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">verilog_manual</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">verilog study note</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">verilog_manual</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/verilog_manual/verilog_manual.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="verilog-manual">
+<h1>verilog_manual<a class="headerlink" href="#verilog-manual" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://exp.mtl.t.u-tokyo.ac.jp/2024/b3exp/-/wikis/VerilogHDLManual">verilog 簡易マニュアル</a>の中の一部を解説します.</p>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">and_gate</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="kt">wire</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w">  </span><span class="c1">// 1bitの入力信号</span>
+<span class="w">    </span><span class="k">input</span><span class="w"> </span><span class="kt">wire</span><span class="w"> </span><span class="n">inB</span><span class="p">,</span><span class="w">  </span><span class="c1">// 1bitの入力信号</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="kt">wire</span><span class="w"> </span><span class="n">out</span><span class="w">  </span><span class="c1">// 1bitの出力信号</span>
+<span class="p">);</span>
+<span class="w">    </span><span class="k">assign</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inA</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">inB</span><span class="p">;</span><span class="w">  </span><span class="c1">// AND演算の組み合わせ回路</span>
+<span class="k">endmodule</span>
+</pre></div>
+</div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="n">testbench</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// パラメータ</span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="n">CYCLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1000</span><span class="p">;</span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="n">HALF_CYCLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">500</span><span class="p">;</span>
+<span class="w">    </span><span class="k">parameter</span><span class="w"> </span><span class="n">DLY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">500</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// 信号の定義</span>
+<span class="w">    </span><span class="kt">reg</span><span class="w"> </span><span class="n">clk</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">reg</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w"> </span><span class="n">inB</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">wire</span><span class="w"> </span><span class="n">out_and_gate</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// テスト対象モジュールのANDゲートをインスタンス化</span>
+<span class="w">    </span><span class="n">and_gate</span><span class="w"> </span><span class="n">and_gate_0</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">.</span><span class="n">inA</span><span class="p">(</span><span class="n">inA</span><span class="p">),</span>
+<span class="w">        </span><span class="p">.</span><span class="n">inB</span><span class="p">(</span><span class="n">inB</span><span class="p">),</span>
+<span class="w">        </span><span class="p">.</span><span class="n">out</span><span class="p">(</span><span class="n">out_and_gate</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// クロック生成： HIGH/LOWを繰り返す</span>
+<span class="w">    </span><span class="k">always</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">clk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#(</span><span class="n">HALF_CYCLE</span><span class="p">)</span><span class="w"> </span><span class="n">clk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#(</span><span class="n">HALF_CYCLE</span><span class="p">);</span><span class="w">  </span><span class="c1">// #によって時間遅延を表現できる、#のあとに指定した単位時間だけ待って次の処理に移る</span>
+<span class="w">    </span><span class="k">end</span>
+
+<span class="w">    </span><span class="c1">// テストシナリオ</span>
+<span class="w">    </span><span class="k">initial</span><span class="w"> </span><span class="k">begin</span>
+<span class="w">        </span><span class="n">inA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span><span class="w"> </span><span class="n">inB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span><span class="w">  </span><span class="c1">// 初期化</span>
+
+<span class="w">        </span><span class="c1">// 入力を変化させ、出力を表示</span>
+<span class="w">        </span><span class="n">inA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span><span class="w"> </span><span class="n">inB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#</span><span class="mh">100</span><span class="w"> </span><span class="nb">$display</span><span class="p">(</span><span class="s">&quot;inA=%b inB=%b out=%b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w"> </span><span class="n">inB</span><span class="p">,</span><span class="w"> </span><span class="n">out_and_gate</span><span class="p">);</span>
+<span class="w">        </span><span class="n">inA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span><span class="w"> </span><span class="n">inB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#</span><span class="mh">100</span><span class="w"> </span><span class="nb">$display</span><span class="p">(</span><span class="s">&quot;inA=%b inB=%b out=%b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w"> </span><span class="n">inB</span><span class="p">,</span><span class="w"> </span><span class="n">out_and_gate</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">inA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span><span class="w"> </span><span class="n">inB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#</span><span class="mh">100</span><span class="w"> </span><span class="nb">$display</span><span class="p">(</span><span class="s">&quot;inA=%b inB=%b out=%b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w"> </span><span class="n">inB</span><span class="p">,</span><span class="w"> </span><span class="n">out_and_gate</span><span class="p">);</span><span class="w">  </span>
+<span class="w">        </span><span class="n">inA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span><span class="w"> </span><span class="n">inB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">#</span><span class="mh">100</span><span class="w"> </span><span class="nb">$display</span><span class="p">(</span><span class="s">&quot;inA=%b inB=%b out=%b&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">inA</span><span class="p">,</span><span class="w"> </span><span class="n">inB</span><span class="p">,</span><span class="w"> </span><span class="n">out_and_gate</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// クロックの立ち上がり10回待って終了</span>
+<span class="w">        </span><span class="k">repeat</span><span class="p">(</span><span class="mh">10</span><span class="p">)</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">);</span><span class="w"> </span><span class="c1">// 10回繰り返し</span>
+<span class="w">        </span><span class="nb">$finish</span><span class="p">;</span>
+<span class="w">    </span><span class="k">end</span>
+<span class="k">endmodule</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">reg</span></code>はフリップフロップ, 状態変数など, クロックなどに応じて値が変化するような用途に使います.<br />
+Verilogの<code class="docutils literal notranslate"><span class="pre">.inA</span></code>表記はnamed port connectionと呼ばれる構文で, <code class="docutils literal notranslate"><span class="pre">.inA(inA)</span></code>の<code class="docutils literal notranslate"><span class="pre">.inA</span></code>はモジュール内で定義されたポート名で, <code class="docutils literal notranslate"><span class="pre">(inA)</span></code>はテストベンチ側の信号名です.<br />
+<code class="docutils literal notranslate"><span class="pre">always</span></code>は, 継続的に実行されるプロセスを定義するブロックで, シミュレーション中に繰り返し実行されます.<br />
+<code class="docutils literal notranslate"><span class="pre">clk</span> <span class="pre">=</span> <span class="pre">1'b1</span></code>では, clk信号を論理1(HIGH)に設定します. ここで<code class="docutils literal notranslate"><span class="pre">1'b1</span></code>は1ビット(<code class="docutils literal notranslate"><span class="pre">1'</span></code>)のバイナリ(<code class="docutils literal notranslate"><span class="pre">b</span></code>)値「1(<code class="docutils literal notranslate"><span class="pre">1</span></code>)」を意味します.<br />
+<code class="docutils literal notranslate"><span class="pre">#(HALF_CYCLE)</span></code>の<code class="docutils literal notranslate"><span class="pre">#</span></code>は時間遅延演算子です.ちなみに以下の二つは同じ意味です.</p>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="p">#(</span><span class="n">HALF_CYCLE</span><span class="p">)</span><span class="w"> </span><span class="n">clk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="highlight-verilog notranslate"><div class="highlight"><pre><span></span><span class="p">#(</span><span class="n">HALF_CYCLE</span><span class="p">);</span>
+<span class="n">clk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">1</span><span class="mb">&#39;b0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$display</span></code>はシミュレーション中にメッセージを表示するためのシステムタスクです. <code class="docutils literal notranslate"><span class="pre">$finish</span></code>はシミュレーションを終了するためのシステムタスクです.<br />
+<code class="docutils literal notranslate"><span class="pre">repeat(10)</span> <span class="pre">&#64;(posedge</span> <span class="pre">clk);</span></code>について<br />
+<code class="docutils literal notranslate"><span class="pre">repeat(10)</span></code>は繰り返し制御文で, 続くステートメントを10回繰り返します. <code class="docutils literal notranslate"><span class="pre">&#64;(posedge</span> <span class="pre">clk)</span></code>はイベント制御文で, <code class="docutils literal notranslate"><span class="pre">clk</span></code>の立ち上がりエッジ(0から1への変化)を待ちます.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kei Tsukamoto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
